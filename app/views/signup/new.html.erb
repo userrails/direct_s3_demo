@@ -1,0 +1,23 @@
+<%= form_for @user, url: signup_index_path, method: :post do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation" style="color: red;">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@user.errors.count, "error") %>
+      </div>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :email_address %>
+  <%= f.text_field :email_address, placeholder: "Input Email" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+  <%= f.file_field :avatar %>
+  <%= f.submit "Create Account" %>
+<% end %>

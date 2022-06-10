@@ -1,0 +1,12 @@
+<table border="1">
+  <thead>
+    <th>File</th>
+  </thead>
+  <% @uploads.each_with_index do |upload, i| %>
+    <tbody>
+      <td><%= i + 1%></td>
+      <td><%= image_tag(upload.file.url, height: '50px', width: '50px') %></td>
+      <td><%= link_to 'Show', user_upload_path(current_user.id, upload.id) %></td>
+    </tbody>
+  <% end %> 
+</table>

@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter: postgresql
+  username: siv
+  password: 
+  host: localhost
+  pool: 5
+
+development:
+  database: aws_dev
+  <<: *defaults
+
+test: &test
+  database: aws_test
+  <<: *defaults
+
+production:
+  database: aws_dev
+  <<: *defaults

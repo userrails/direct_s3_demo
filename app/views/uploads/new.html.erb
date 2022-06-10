@@ -1,0 +1,17 @@
+<%= form_for [current_user, @upload] do |f| %>
+  <% if @upload.errors.any? %>
+    <div id="error_explanation" style="color: red;">
+      <div class="alert alert-danger">
+        The form contains <%= pluralize(@upload.errors.count, "error") %>
+      </div>
+      <ul>
+        <% @upload.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.file_field :file %>
+  <%= f.submit "Create" %>
+<% end %>

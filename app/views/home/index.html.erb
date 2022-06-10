@@ -1,0 +1,9 @@
+<h1>Welcome to home page of <%= @user.email_address %></h2>
+
+<% if current_user == @user %>
+  <h3>My Page!</h3>
+
+  <%# if current_user.avatar.present? %>
+    <%#= image_tag current_user.avatar&.url %>
+  <%# end %>
+<% end %>
